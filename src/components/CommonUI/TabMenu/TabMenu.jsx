@@ -52,7 +52,7 @@ const TabMenu = ({ place }) => {
         <TabMenuEachInner>
           <Link to='/search/musichall'>
             <TabImg
-              src={place === 'myprofile' ? mapTabFill : mapTab}
+              src={place === 'searchmusichall' ? mapTabFill : mapTab}
               alt='지도 포인트 이미지'
             />
             <EachTabSpan>내 주변 공연장</EachTabSpan>
