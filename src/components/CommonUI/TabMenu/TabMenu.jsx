@@ -48,6 +48,15 @@ const TabMenu = ({ place }) => {
           </Link>
         </TabMenuEachInner>
         <TabMenuEachInner>
+          <Link to='/search/musichall'>
+            <TabImg
+              src={place === 'myprofile' ? userTabFill : userTab}
+              alt='내 프로필'
+            />
+            <EachTabSpan>내 주변 공연장</EachTabSpan>
+          </Link>
+        </TabMenuEachInner>
+        <TabMenuEachInner>
           <Link to={`/profile/${accountName}`}>
             <TabImg
               src={place === 'myprofile' ? userTabFill : userTab}
