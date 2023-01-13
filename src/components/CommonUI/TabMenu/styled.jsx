@@ -25,7 +25,7 @@ export const TabMenuEachInner = styled.li`
     justify-content: center;
     align-items: center;
     gap: 4px;
-    width: 84px;
+    width: 64px;
     height: 60px;
   }
 `;

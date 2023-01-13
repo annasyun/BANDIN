@@ -15,6 +15,8 @@ import messageTabFill from '../../../assets/icon-message-circle-fill.png';
 import editTab from '../../../assets/icon-edit.png';
 import userTab from '../../../assets/icon-user.png';
 import userTabFill from '../../../assets/icon-user-fill.png';
+import mapTab from '../../../assets/icon-map.png';
+import mapTabFill from '../../../assets/icon-map-fill.png';
 
 const TabMenu = ({ place }) => {
   const accountName = localStorage.getItem('accountname');
@@ -50,8 +52,8 @@ const TabMenu = ({ place }) => {
         <TabMenuEachInner>
           <Link to='/search/musichall'>
             <TabImg
-              src={place === 'myprofile' ? userTabFill : userTab}
-              alt='내 프로필'
+              src={place === 'myprofile' ? mapTabFill : mapTab}
+              alt='지도 포인트 이미지'
             />
             <EachTabSpan>내 주변 공연장</EachTabSpan>
           </Link>
