@@ -11,7 +11,7 @@ const Search = () => {
   const [userInput, setUserInput] = useState(null);
   const [userArr, setUserArr] = useState([]);
 
-  useEffect(() => {
+  const search = () => {
     if (userInput) {
       getSearchUser(userInput)
         .then((data) => {
@@ -21,6 +21,29 @@ const Search = () => {
           console.log(error);
         });
     }
+  };
+
+  useEffect(() => {
+    // 처음에 마운트 될 때 실행 된다. (리턴문 제외하고 실행)
+    const newTimer = setTimeout(() => {
+      search();
+    }, 400);
+
+    // 원래 디바운싱 전에 실행했던 코드
+    // if (userInput) {
+    //   getSearchUser(userInput)
+    //     .then((data) => {
+    //       setUserArr(data);
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    // }
+
+    // 마운트 제외하고 그 다음부터 인풋창 변경되서 실행될 때는 리턴문 먼저 실행
+    return () => {
+      clearTimeout(newTimer);
+    };
   }, [userInput]);
 
   const getInput = (event) => {
