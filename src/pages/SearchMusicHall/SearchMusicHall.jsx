@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { useEffect } from 'react';
 import TabMenu from '../../components/CommonUI/TabMenu/TabMenu';
 
