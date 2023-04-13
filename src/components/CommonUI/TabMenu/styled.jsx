@@ -9,6 +9,7 @@ export const TabMenuSection = styled.footer`
       padding: 0 6px;
       border-top: 0.5px solid ${theme.colors.greyDB};
       background-color: #fff;
+      z-index: 10;
     `;
   }}
 `;

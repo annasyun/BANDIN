@@ -1,26 +1,35 @@
 /* eslint-disable */
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import TabMenu from '../../components/CommonUI/TabMenu/TabMenu';
 
-const { kakao } = window;
+import MapContainer from './MapContainer';
 
 const SearchMusicHall = () => {
-  useEffect(() => {
-    const container = document.getElementById('map');
-    const options = {
-      center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-      level: 3, // 지도의 확대 레벨
-    };
-    const map = new kakao.maps.Map(container, options);
-  }, []);
+  const [InputText, setInputText] = useState('');
+  const [Place, setPlace] = useState('');
+
+  const onChange = (e) => {
+    setInputText(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setPlace(InputText);
+    setInputText('');
+  };
 
   return (
     <>
-      <div
-        id='map'
-        style={{ width: '100%', height: '100vh', zIndex: -10 }}
-      ></div>
+      <form className='inputForm' onSubmit={handleSubmit}>
+        <input
+          placeholder='검색어를 입력하세요'
+          onChange={onChange}
+          value={InputText}
+        />
+        <button type='submit'>검색</button>
+      </form>
+      <MapContainer searchPlace={Place} />
       <TabMenu place='searchmusichall' />
     </>
   );
