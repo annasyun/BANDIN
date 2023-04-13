@@ -10,7 +10,6 @@ import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <React.StrictMode>
   <BrowserRouter>
     <ThemeProvider theme={theme}>
       <RecoilRoot>
@@ -19,5 +18,4 @@ root.render(
       </RecoilRoot>
     </ThemeProvider>
   </BrowserRouter>,
-  // </React.StrictMode>,
 );
