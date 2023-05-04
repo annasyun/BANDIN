@@ -23,7 +23,6 @@ const EditProduct = () => {
 
   const [isLinkValid, setIsLinkValid] = useState(false);
   const [linkError, setLinkError] = useState('');
-  // const accountname = localStorage.getItem('accountname');
   const accountname = useRecoilValue(accountNameValue);
 
   const [inputValue, setInputValue] = useState({
@@ -31,6 +30,7 @@ const EditProduct = () => {
     link: '',
   });
 
+  // input에 입력시 화면에 반영
   const handleData = (e) => {
     const { name, value } = e.target;
     setInputValue({ ...inputValue, [name]: value });
@@ -54,7 +54,6 @@ const EditProduct = () => {
   useEffect(() => {
     getProductData(productId)
       .then((data) => {
-        console.log('기존 상품정보 확인', data.product.itemImage);
         setItemImage(data.product.itemImage);
         setPrice(String(data.product.price));
         setInputValue({
@@ -66,7 +65,6 @@ const EditProduct = () => {
         console.log(error);
       });
   }, []);
-  console.log(itemImage);
 
   // 상품명,가격,판매 링크 입력시 화면에 반영
   const handlePrice = (event) => {
